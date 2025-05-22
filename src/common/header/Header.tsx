@@ -9,9 +9,15 @@ const Header = () => {
   const y = useTransform(scrollYProgress, [0, 1], ["100px", "0px"]);
 
   return (
-    <div className="fixed top-0 w-full h-fit py-10 z-10 text-white perspective-[800px]">
+    <div className="fixed top-0 w-full h-fit py-15 z-10 text-white perspective-[800px]">
       <motion.h1
-        style={{ opacity, rotateX, y }}
+        initial={{
+          opacity: 0,
+          rotateX: "-100deg",
+          y: "100px",
+        }}
+        animate={{ opacity: 1, rotateX: "0deg", y: "0px" }}
+        transition={{ duration: 1.3, ease: "easeInOut" }}
         className="text-8xl font-bold text-center whitespace-nowrap transform-style-preserve-3d translate-z-[100px]"
       >
         JEONG SEORYEONG
