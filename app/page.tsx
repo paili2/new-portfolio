@@ -14,12 +14,12 @@ export default function Home() {
       <motion.div className="sticky top-0 left-0">
         <DiagonalSlider></DiagonalSlider>
       </motion.div>
-      <motion.div style={{ top }} className="sticky left-0">
+      {/* <motion.div style={{ top }} className="sticky left-0">
         <ConveyorBelt></ConveyorBelt>
       </motion.div>
       <motion.div className="sticky top-0 left-0">
         <Slider></Slider>
-      </motion.div>
+      </motion.div> */}
     </div>
   );
 }
