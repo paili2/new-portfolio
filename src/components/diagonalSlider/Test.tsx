@@ -1,10 +1,11 @@
+// absolute => absolute로 바꾸는 작업 Test
+
 "use client";
 
-import ConveyorBelt from "../conveyorBelt/ConveyorBelt";
 import DiagonalCard from "./subComponents/DiagonalCard";
 import { useScroll, useTransform, motion, useSpring } from "motion/react";
 
-const DiagonalSlider = () => {
+const Test = () => {
   const { scrollYProgress } = useScroll({
     offset: ["start start", "end end"],
   });
@@ -43,13 +44,13 @@ const DiagonalSlider = () => {
 
   return (
     <div className="w-full h-[300vh] relative">
-      <motion.div
+      {/* <motion.div
         style={{ height, opacity }}
-        className="fixed w-full top-0 left-0 bg-gray-500 z-10"
-      ></motion.div>
+        className="absolute w-full top-0 left-0 bg-gray-500 z-10"
+      ></motion.div> */}
       <motion.h1
         style={{ y: springY, translateY, zIndex }}
-        className="fixed bottom-10 right-30 text-9xl font-bold text-amber-300"
+        className="absolute bottom-[45%] right-30 text-9xl font-bold text-amber-300"
       >
         Frontend
         <br />
@@ -59,7 +60,7 @@ const DiagonalSlider = () => {
         return (
           <motion.div
             key={i}
-            className="fixed"
+            className="absolute"
             style={{ x, y, top: `${v.top}`, left: `${v.left}` }}
           >
             <DiagonalCard img={v.img}></DiagonalCard>
@@ -70,4 +71,4 @@ const DiagonalSlider = () => {
   );
 };
 
-export default DiagonalSlider;
+export default Test;

@@ -1,6 +1,6 @@
 "use client";
 
-import { easeOut, motion, useAnimation } from "motion/react";
+import { motion, useAnimation } from "motion/react";
 import { useEffect } from "react";
 
 type conveyorBeltProps = {
@@ -44,7 +44,7 @@ const ConveyorBelt = ({ className }: conveyorBeltProps) => {
   }, [controls]);
 
   return (
-    <div
+    <motion.div
       className={`w-full h-screen overflow-hidden [perspective:1000px] relative bg-blue-300  ${className}`}
     >
       {images.map((src, i) => (
@@ -62,7 +62,7 @@ const ConveyorBelt = ({ className }: conveyorBeltProps) => {
           "
         />
       ))}
-    </div>
+    </motion.div>
   );
 };
 
