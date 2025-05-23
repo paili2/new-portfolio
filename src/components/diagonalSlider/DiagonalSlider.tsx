@@ -18,7 +18,11 @@ const DiagonalSlider = () => {
   const height = useTransform(scrollYProgress, [0, 1], ["100%", "0%"]);
   const opacity = useTransform(scrollYProgress, [0.9, 1], ["1", "0"]);
 
-  const y = useTransform(scrollYProgress, [0.5, 1], ["0px", "-50px"]);
+  const y = useTransform(
+    scrollYProgress,
+    [0.5, 0.8, 1],
+    ["0px", "-50px", "-100px"]
+  );
   const springY = useSpring(y, { stiffness: 100, damping: 10 });
 
   const container = useRef(null);
