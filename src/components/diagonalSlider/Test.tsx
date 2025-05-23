@@ -9,8 +9,8 @@ const Test = () => {
   const { scrollYProgress } = useScroll({
     offset: ["start start", "end end"],
   });
-  const x = useTransform(scrollYProgress, [0, 1], ["0vw", "-100vw"]);
-  const y = useTransform(scrollYProgress, [0, 1], ["0vh", "-100vh"]);
+  const x = useTransform(scrollYProgress, [0, 1], ["100vw", "-100vw"]);
+  const y = useTransform(scrollYProgress, [0, 1], ["100vh", "-100vh"]);
   const a = [
     { img: "16.jpg", top: "10%", left: "10%" },
     { img: "1.jpg", top: "40%", left: "40%" },
