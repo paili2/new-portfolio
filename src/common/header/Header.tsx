@@ -4,9 +4,8 @@ import { useScroll, useTransform, motion } from "motion/react";
 
 const Header = () => {
   const { scrollYProgress } = useScroll();
-  const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
-  const rotateX = useTransform(scrollYProgress, [0, 1], ["-100deg", "0deg"]);
-  const y = useTransform(scrollYProgress, [0, 1], ["100px", "0px"]);
+
+  const fontSize = useTransform(scrollYProgress, [0, 0.3], ["96px", "50px"]);
 
   return (
     <div className="fixed top-0 w-full h-fit py-15 text-white perspective-[800px] z-50">
@@ -18,7 +17,8 @@ const Header = () => {
         }}
         animate={{ opacity: 1, rotateX: "0deg", y: "0px" }}
         transition={{ duration: 1.3, ease: "easeInOut" }}
-        className="text-8xl font-bold text-center whitespace-nowrap transform-style-preserve-3d translate-z-[100px] text-black"
+        className="font-bold text-center whitespace-nowrap transform-style-preserve-3d translate-z-[100px] text-black"
+        style={{ fontSize }}
       >
         JEONG SEORYEONG
       </motion.h1>

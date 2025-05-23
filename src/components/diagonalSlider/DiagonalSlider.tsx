@@ -41,7 +41,7 @@ const DiagonalSlider = () => {
   ];
 
   return (
-    <div className="w-full h-[200vh] relative">
+    <div className="w-full h-[300vh] relative">
       <motion.div
         style={{ height, opacity }}
         className="fixed w-full top-0 left-0 bg-blue-700 z-10"

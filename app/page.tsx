@@ -12,13 +12,11 @@ export default function Home() {
 
   return (
     <div className="overflow-x-hidden overflow-y-auto relative">
-      {/* <motion.div className="sticky top-0 left-0">
-        <DiagonalSlider></DiagonalSlider>
-      </motion.div> */}
-      {/* <motion.div style={{ top }} className="sticky left-0">
+      <div className="relative h-[300vh]">
         <ConveyorBelt></ConveyorBelt>
-      </motion.div>
-      <motion.div className="sticky top-0 left-0">
+      </div>
+
+      {/* <motion.div className="sticky top-0 left-0">
         <Slider></Slider>
       </motion.div> */}
       {/* <motion.div className="sticky top-0 left-0"></motion.div> */}
