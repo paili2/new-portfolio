@@ -1,13 +1,15 @@
 "use client";
 
-import { motion, useAnimation } from "motion/react";
+import { motion, MotionValue, useAnimation } from "motion/react";
 import { useEffect } from "react";
 
 type conveyorBeltProps = {
   className?: string;
+  conveyorY: MotionValue<string>;
+  opacity: MotionValue<string>;
 };
 
-const ConveyorBelt = ({ className }: conveyorBeltProps) => {
+const ConveyorBelt = ({ className, conveyorY, opacity }: conveyorBeltProps) => {
   const images = [
     "/220412_PBS_web_kinako.png",
     "/220412_PBS_web_plain.png",
@@ -45,7 +47,8 @@ const ConveyorBelt = ({ className }: conveyorBeltProps) => {
 
   return (
     <motion.div
-      className={`w-full h-screen overflow-hidden [perspective:1000px] relative bg-blue-300  ${className}`}
+      className={`fixed w-full h-screen overflow-hidden [perspective:1000px] bg-blue-300 top-0 left-0 z-20  ${className}`}
+      style={{ y: conveyorY, opacity }}
     >
       {images.map((src, i) => (
         <motion.img
@@ -58,7 +61,7 @@ const ConveyorBelt = ({ className }: conveyorBeltProps) => {
             absolute top-1/2 left-1/2
             w-48 h-48 object-cover
             -translate-x-1/2 -translate-y-1/2
-            transform-style-preserve-3d
+            transform-style-preserve-3d 
           "
         />
       ))}

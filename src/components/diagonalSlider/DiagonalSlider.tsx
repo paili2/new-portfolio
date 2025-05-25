@@ -10,7 +10,7 @@ const DiagonalSlider = () => {
   });
 
   // blueBox effect
-  const height = useTransform(scrollYProgress, [0, 0.5], ["100%", "0%"]);
+  const conveyorY = useTransform(scrollYProgress, [0, 0.5], ["0vh", "-100vh"]);
   const opacity = useTransform(scrollYProgress, [0.4, 0.5], ["1", "0"]);
 
   // "frontend-project" text effect
@@ -43,10 +43,11 @@ const DiagonalSlider = () => {
 
   return (
     <div className="w-full h-[300vh] relative">
-      <motion.div
+      <ConveyorBelt conveyorY={conveyorY} opacity={opacity}></ConveyorBelt>
+      {/* <motion.div
         style={{ height, opacity }}
         className="fixed w-full top-0 left-0 bg-gray-500 z-10"
-      ></motion.div>
+      ></motion.div> */}
       <motion.h1
         style={{ y: springY, translateY, zIndex }}
         className="fixed bottom-10 right-30 text-9xl font-bold text-amber-300"
