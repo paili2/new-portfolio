@@ -48,26 +48,28 @@ const ConveyorBelt = ({ className, conveyorY, opacity }: conveyorBeltProps) => {
   }, [controls]);
 
   return (
-    <motion.div
-      className={`fixed w-full h-screen overflow-hidden [perspective:1000px] bg-blue-300 top-0 left-0 z-20  ${className}`}
-      style={{ y: conveyorY, opacity }}
-    >
-      {images.map((src, i) => (
-        <motion.img
-          key={i}
-          custom={i}
-          animate={controls}
-          src={src}
-          alt=""
-          className="
+    <div className="w-full h-screen bg-blue-300 sticky top-0 z-20 ">
+      <motion.div
+        className={`absolute w-full h-screen overflow-hidden [perspective:1000px]  top-0 left-0 ${className}`}
+        style={{ y: conveyorY, opacity }}
+      >
+        {images.map((src, i) => (
+          <motion.img
+            key={i}
+            custom={i}
+            animate={controls}
+            src={src}
+            alt=""
+            className="
             absolute top-1/2 left-1/2
             w-48 h-48 object-cover
             -translate-x-1/2 -translate-y-1/2
             transform-style-preserve-3d 
           "
-        />
-      ))}
-    </motion.div>
+          />
+        ))}
+      </motion.div>
+    </div>
   );
 };
 

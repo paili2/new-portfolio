@@ -1,17 +1,30 @@
 "use client";
 
+import { useRef } from "react";
 import ConveyorBelt from "../conveyorBelt/ConveyorBelt";
 import DiagonalCard from "./subComponents/DiagonalCard";
-import { useScroll, useTransform, motion, useSpring } from "motion/react";
+import {
+  useScroll,
+  useTransform,
+  motion,
+  useSpring,
+  useMotionValueEvent,
+} from "motion/react";
 
 const DiagonalSlider = () => {
+  const sectionRef = useRef(null);
   const { scrollYProgress } = useScroll({
-    offset: ["start start", "end end"],
+    target: sectionRef,
+    offset: ["start center", "end center"],
   });
 
-  // blueBox effect
-  const conveyorY = useTransform(scrollYProgress, [0, 0.5], ["0vh", "-100vh"]);
-  const opacity = useTransform(scrollYProgress, [0.4, 0.5], ["1", "0"]);
+  // <ConveyorBelt> effect
+  const conveyorY = useTransform(
+    scrollYProgress,
+    [0.2, 0.3],
+    ["0vh", "-100vh"]
+  );
+  const opacity = useTransform(scrollYProgress, [0.9, 1], ["1", "0"]);
 
   // "frontend-project" text effect
   const textY = useTransform(
@@ -41,16 +54,25 @@ const DiagonalSlider = () => {
     { img: "1.jpg", top: "160%", left: "160%" },
   ];
 
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    console.log("scrollYProgress:", latest);
+  });
+
   return (
-    <div className="w-full h-[300vh] relative">
+    <div ref={sectionRef} className="w-full h-[300vh] relative">
       <ConveyorBelt conveyorY={conveyorY} opacity={opacity}></ConveyorBelt>
       {/* <motion.div
         style={{ height, opacity }}
         className="fixed w-full top-0 left-0 bg-gray-500 z-10"
       ></motion.div> */}
       <motion.h1
-        style={{ y: springY, translateY, zIndex }}
-        className="fixed bottom-10 right-30 text-9xl font-bold text-amber-300"
+        style={{
+          y: springY,
+          translateY,
+          zIndex,
+          textShadow: "1px 1px 2px gray",
+        }}
+        className="fixed bottom-10 right-30 text-9xl font-bold text-white"
       >
         Frontend
         <br />

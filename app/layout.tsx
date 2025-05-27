@@ -16,7 +16,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Header></Header>
-        <main>{children}</main>
+        <main className="bg-[url('/bg.jpg')]">{children}</main>
       </body>
     </html>
   );
