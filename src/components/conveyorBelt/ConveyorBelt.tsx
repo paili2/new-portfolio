@@ -11,12 +11,14 @@ type conveyorBeltProps = {
 
 const ConveyorBelt = ({ className, conveyorY, opacity }: conveyorBeltProps) => {
   const images = [
-    "/220412_PBS_web_kinako.png",
-    "/220412_PBS_web_plain.png",
-    "/fy25_chocolate_webtop_1430x1200.png",
-    "/220412_PBS_web_kinako.png",
-    "/220412_PBS_web_plain.png",
-    "/fy25_chocolate_webtop_1430x1200.png",
+    "skill/html.webp",
+    "skill/css.webp",
+    "skill/javascript.webp",
+    "skill/typescript.webp",
+    "skill/react.webp",
+    "skill/nextjs.webp",
+    "skill/java.webp",
+    "skill/springboot.webp",
   ];
 
   const controls = useAnimation();
