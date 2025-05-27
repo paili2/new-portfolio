@@ -1,5 +1,11 @@
 "use client";
 
+import "swiper/css";
+import "swiper/css/effect-flip";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import "../skilswiper/skillSwiper.css";
+
 import { useRef } from "react";
 import ConveyorBelt from "../conveyorBelt/ConveyorBelt";
 import DiagonalCard from "./subComponents/DiagonalCard";
@@ -10,6 +16,9 @@ import {
   useSpring,
   useMotionValueEvent,
 } from "motion/react";
+import SkillCard from "../skilswiper/subComponents/SkillCard";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectFlip, Navigation, Pagination } from "swiper/modules";
 
 const DiagonalSlider = () => {
   const sectionRef = useRef(null);
@@ -43,13 +52,21 @@ const DiagonalSlider = () => {
   const zIndex = useTransform(scrollYProgress, [0.6, 0.8], [0, 100]);
 
   // card effect
-  const x = useTransform(scrollYProgress, [0.6, 1], ["100vw", "-200vw"]);
-  const y = useTransform(scrollYProgress, [0.6, 1], ["100vh", "-200vh"]);
+  const x = useTransform(
+    scrollYProgress,
+    [0.6, 0.8, 1],
+    ["100vw", "0vw", "-100vw"]
+  );
+  const y = useTransform(
+    scrollYProgress,
+    [0.6, 0.8, 1],
+    ["100vh", "0vh", "-100vh"]
+  );
   const cardData = [
-    { img: "/project/musinsa.webp", top: "10%", left: "10%" },
-    { img: "/project/socar.webp", top: "40%", left: "40%" },
-    { img: "/project/ticketLink.webp", top: "70%", left: "70%" },
-    { img: "/project/nhis.webp", top: "100%", left: "100%" },
+    { img: "/project/MUSINSA.png", top: "10%", left: "10%" },
+    { img: "/project/SOCAR.png", top: "40%", left: "40%" },
+    { img: "/project/001.png", top: "70%", left: "70%" },
+    { img: "1.jpg", top: "100%", left: "100%" },
     { img: "16.jpg", top: "130%", left: "130%" },
     { img: "1.jpg", top: "160%", left: "160%" },
   ];
@@ -83,9 +100,32 @@ const DiagonalSlider = () => {
           <motion.div
             key={i}
             className="fixed"
-            style={{ x, y, top: `${v.top}`, left: `${v.left}` }}
+            style={{
+              x,
+              y,
+              top: `${v.top}`,
+              left: `${v.left}`,
+              perspective: 1000,
+            }}
           >
-            <DiagonalCard img={v.img}></DiagonalCard>
+            <Swiper
+              effect={"flip"}
+              grabCursor={true}
+              loop={true}
+              modules={[EffectFlip, Pagination, Navigation]}
+              className="mySwiper"
+            >
+              <SwiperSlide>
+                <DiagonalCard img={v.img}></DiagonalCard>
+              </SwiperSlide>
+
+              <SwiperSlide className="p-10">
+                <p>
+                  웹 문서의 구조를 설계하고 시맨틱 태그를 활용해 접근성과 SEO를
+                  고려한 마크업 작성
+                </p>
+              </SwiperSlide>
+            </Swiper>
           </motion.div>
         );
       })}
