@@ -46,10 +46,10 @@ const DiagonalSlider = () => {
   const x = useTransform(scrollYProgress, [0.6, 1], ["100vw", "-200vw"]);
   const y = useTransform(scrollYProgress, [0.6, 1], ["100vh", "-200vh"]);
   const cardData = [
-    { img: "16.jpg", top: "10%", left: "10%" },
-    { img: "1.jpg", top: "40%", left: "40%" },
-    { img: "16.jpg", top: "70%", left: "70%" },
-    { img: "1.jpg", top: "100%", left: "100%" },
+    { img: "/project/musinsa.webp", top: "10%", left: "10%" },
+    { img: "/project/socar.webp", top: "40%", left: "40%" },
+    { img: "/project/ticketLink.webp", top: "70%", left: "70%" },
+    { img: "/project/nhis.webp", top: "100%", left: "100%" },
     { img: "16.jpg", top: "130%", left: "130%" },
     { img: "1.jpg", top: "160%", left: "160%" },
   ];
